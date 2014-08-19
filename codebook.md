@@ -3,74 +3,72 @@ Variable | Definition
 -------- | ----------
 subject | numeric indicator in the range [1:30] representing the individual wearing the smartphone
 activity | activity performed: one of "LAYING", STANDING", "SITTING", WALKING", "WALKING\_UPSTAIRS", "WALKING\_DOWNSTAIRS"
-
-The following variables correspond to the variables in features_info.txt of the original dataset:
-tbodyAcc.mean...X
-tbodyAcc.mean...Y
-tbodyAcc.mean...Z
-tbodyAcc.std...X
-tbodyAcc.std...Y
-tbodyAcc.std...Z
-tGravityAcc.mean...X
-tGravityAcc.mean...Y
-tGravityAcc.mean...Z
-tGravityAcc.std...X        
-tGravityAcc.std...Y
-tGravityAcc.std...Z
-tBodyAccJerk.mean...X
-tBodyAccJerk.mean...Y      
-tBodyAccJerk.mean...Z
-tBodyAccJerk.std...X
-tBodyAccJerk.std...Y
-tBodyAccJerk.std...Z       
-tBodyGyro.mean...X
-tBodyGyro.mean...Y
-tBodyGyro.mean...Z
-tBodyGyro.std...X          
-tBodyGyro.std...Y
-tBodyGyro.std...Z
-tBodyGyroJerk.mean...X
-tBodyGyroJerk.mean...Y     
-tBodyGyroJerk.mean...Z
-tBodyGyroJerk.std...X
-tBodyGyroJerk.std...Y
-tBodyGyroJerk.std...Z      
-tBodyAccMag.mean..
-tBodyAccMag.std..
-tGravityAccMag.mean..
-tGravityAccMag.std..       
-tBodyAccJerkMag.mean..
-tBodyAccJerkMag.std..
-tBodyGyroMag.mean..
-tBodyGyroMag.std..         
-tBodyGyroJerkMag.mean..
-tBodyGyroJerkMag.std..
-fBodyAcc.mean...X
-fBodyAcc.mean...Y
-fBodyAcc.mean...Z
-fBodyAcc.std...X 
-fBodyAcc.std...Y 
-fBodyAcc.std...Z 
-fBodyAccJerk.mean...X 
-fBodyAccJerk.mean...Y 
-fBodyAccJerk.mean...Z 
-fBodyAccJerk.std...X 
-fBodyAccJerk.std...Y 
-fBodyAccJerk.std...Z 
-fBodyGyro.mean...X
-fBodyGyro.mean...Y         
-fBodyGyro.mean...Z
-fBodyGyro.std...X
-fBodyGyro.std...Y
-fBodyGyro.std...Z          
-fBodyAccMag.mean..
-fBodyAccMag.std..
-fBodyBodyAccJerkMag.mean..
-fBodyBodyAccJerkMag.std..  
-fBodyBodyGyroMag.mean..
-fBodyBodyGyroMag.std..
-fBodyBodyGyroJerkMag.mean..
-fBodyBodyGyroJerkMag.std..
+tbodyAcc.mean...X | Corresponds to equivalent variable in features_info.txt of the original dataset
+tbodyAcc.mean...Y | Corresponds to equivalent variable in features_info.txt of the original dataset
+tbodyAcc.mean...Z | Corresponds to equivalent variable in features_info.txt of the original dataset
+tbodyAcc.std...X | Corresponds to equivalent variable in features_info.txt of the original dataset
+tbodyAcc.std...Y | Corresponds to equivalent variable in features_info.txt of the original dataset
+tbodyAcc.std...Z | Corresponds to equivalent variable in features_info.txt of the original dataset
+tGravityAcc.mean...X | Corresponds to equivalent variable in features_info.txt of the original dataset
+tGravityAcc.mean...Y | Corresponds to equivalent variable in features_info.txt of the original dataset
+tGravityAcc.mean...Z | Corresponds to equivalent variable in features_info.txt of the original dataset
+tGravityAcc.std...X | Corresponds to equivalent variable in features_info.txt of the original dataset
+tGravityAcc.std...Y | Corresponds to equivalent variable in features_info.txt of the original dataset
+tGravityAcc.std...Z | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyAccJerk.mean...X | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyAccJerk.mean...Y | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyAccJerk.mean...Z | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyAccJerk.std...X | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyAccJerk.std...Y | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyAccJerk.std...Z | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyGyro.mean...X | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyGyro.mean...Y | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyGyro.mean...Z | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyGyro.std...X | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyGyro.std...Y | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyGyro.std...Z | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyGyroJerk.mean...X | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyGyroJerk.mean...Y | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyGyroJerk.mean...Z | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyGyroJerk.std...X | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyGyroJerk.std...Y | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyGyroJerk.std...Z | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyAccMag.mean.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyAccMag.std.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+tGravityAccMag.mean.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+tGravityAccMag.std.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyAccJerkMag.mean.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyAccJerkMag.std.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyGyroMag.mean.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyGyroMag.std.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyGyroJerkMag.mean.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+tBodyGyroJerkMag.std.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyAcc.mean...X | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyAcc.mean...Y | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyAcc.mean...Z | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyAcc.std...X | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyAcc.std...Y | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyAcc.std...Z | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyAccJerk.mean...X | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyAccJerk.mean...Y | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyAccJerk.mean...Z | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyAccJerk.std...X | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyAccJerk.std...Y | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyAccJerk.std...Z | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyGyro.mean...X | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyGyro.mean...Y | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyGyro.mean...Z | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyGyro.std...X | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyGyro.std...Y | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyGyro.std...Z | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyAccMag.mean.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyAccMag.std.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyBodyAccJerkMag.mean.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyBodyAccJerkMag.std.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyBodyGyroMag.mean.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyBodyGyroMag.std.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyBodyGyroJerkMag.mean.. | Corresponds to equivalent variable in features_info.txt of the original dataset
+fBodyBodyGyroJerkMag.std.. | Corresponds to equivalent variable in features_info.txt of the original dataset
 
 ## Code Book for Averages Dataset
 Variable | Definition
