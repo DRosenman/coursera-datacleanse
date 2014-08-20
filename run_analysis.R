@@ -1,4 +1,6 @@
-# Tidy data - in this section of the R script, we load and cleanse the data
+# run_analysis.R | last updated: 8/20/2014 | Tim Sneath <tim@sneath.org>
+
+# 1. Load and Cleanse Data ----------------------------------------------------
 
 ## First load the metadata (labels that describe each variable)
 activity.labels <- read.table("activity_labels.txt", 
@@ -8,11 +10,18 @@ features        <- read.table("features.txt",
                               col.names=c("id", "variable"), 
                               stringsAsFactors=FALSE)
 
+## Do a little tidy up work on the features object to turn it into a 
+## well-formatted character vector. We choose to retain the period (.) delimiter
+## between components of the variable for ease of recognition and later parsing.
+features <- features$variable
+features <- gsub("\\(\\)", "", features) # remove all instances of () 
+features <- gsub("\\-", "\\.", features) # replace - with .
+
 ## Now load the raw observations
-x.train        <- read.table("train/X_train.txt", col.names=features$variable)
+x.train        <- read.table("train/X_train.txt", col.names=features)
 y.train        <- read.table("train/Y_train.txt", col.names="activity")
 subject.train  <- read.table("train/subject_train.txt", col.names="subject")
-x.test         <- read.table("test/X_test.txt", col.names=features$variable)
+x.test         <- read.table("test/X_test.txt", col.names=features)
 y.test         <- read.table("test/Y_test.txt", col.names="activity")
 subject.test   <- read.table("test/subject_test.txt", col.names="subject") 
 
@@ -22,8 +31,8 @@ subject.test   <- read.table("test/subject_test.txt", col.names="subject")
 ## function to create a logical selection vector that can be used to subset only
 ## the relevant column names. We could subset the data later, but it seems
 ## advisable to discard all unnecessary data from memory as quickly as possible.
-column.selection <- grepl("mean|std", features$variable) & 
-                    !grepl("meanFreq", features$variable)
+column.selection <- grepl("mean|std", features) & 
+                    !grepl("meanFreq", features)
 
 x.train <- subset(x.train, select=column.selection)
 x.test  <- subset(x.test, select=column.selection)
@@ -54,12 +63,15 @@ rm(train, test)
 ## Write the initial tidy dataset to file
 write.table(dataset, file="tidy.txt", row.names=FALSE)
 
+# 2. Calculate Averages from Data Set ----------------------------------------
+
 ## Now create a second, independent tidy data set with the average of each 
 ## variable for each activity and each subject. Can either use sapply or 
 ## colMeans, but the latter is preferred for performance reasons. There are 
 ## multiple approaches to this; I originally used a list with two separate data 
 ## frames, but ultimately settled for a single data frame with appropriate row
 ## names and column headers.
+
 subject.averages <- data.frame(row.names=names(dataset[3:68]))
 subjects <- as.numeric(levels(dataset$subject))
 for (id in subjects) {
@@ -79,7 +91,7 @@ colnames(activity.averages) <- activities
 ## Put them together into a single data frame
 averages <- cbind(subject.averages, activity.averages)
 
-## and tidy up again
+## ...and tidy up again
 rm(subject.averages, activity.averages)
 rm(dataset.subject, dataset.activity)
 rm(subjects, activities)
