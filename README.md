@@ -32,26 +32,45 @@ dataset$activity <- factor(dataset$activity, labels=activity.labels$label, order
 Lastly, we write the tidy dataset to disk as `tidy.txt` and then clear the various intermediate variables created during the construction of the `dataset` data frame, using the `rm()` function. 
 
 ## Calculating averages of the raw data
-The second part of the assignment is to create a second, independent tidy data set with the average of each variable for each activity and each subject. In general, one can use `sapply()` to apply a function over a vector, but `colMeans()` is typically preferred for performance reasons. 
+The second part of the assignment is to create a second, independent tidy data set with the average of each variable for each activity and each subject. 
 
-Left open in the assignment is the specific format of the finished data set. One potential approach is to create a list of two data frames, one for the averages of the subjects and the other for the averages of the activities; however, since the variables against which the averages are calculated are identical across both, I considered this unnecessarily complex from the point of an end-consumer of the data and opted instead to name the vectors in the data frame appropriately. This is of course known as a [wide data set](http://en.wikipedia.org/wiki/Wide_and_Narrow_Data). 
-
-To calculate the averages for each subject and activity, we first subset the data to the appropriate selection. We do this with a line such as the following:
+My original version of this assignment was ludicrously laborious because I'd missed out on the power of the `aggregate()` function. Here is the original:
 
 ```
-dataset.subject <- subset(dataset, subset=dataset$subject==id)
+subject.averages <- data.frame(row.names=names(dataset[3:68]))
+subjects <- as.numeric(levels(dataset$subject))
+for (id in subjects) {
+   dataset.subject <- subset(dataset, subset=dataset$subject==id)
+   subject.averages <- cbind(subject.averages, colMeans(dataset.subject[3:68]))
+   colnames(subject.averages)[id] <- paste("subject", id, sep=".")
+}
+
+activity.averages <- data.frame(row.names=names(dataset[3:68]))
+activities <- levels(factor(dataset$activity))
+for (act in activities) {
+   dataset.activity <- subset(dataset, subset=dataset$activity==act)
+   activity.averages <- cbind(activity.averages, colMeans(dataset.activity[3:68]))
+}
+colnames(activity.averages) <- activities
+
+averages <- cbind(subject.averages, activity.averages)
 ```
 
-This creates a separate data frame that just contains the rows where the subject matches the selected id. Next we use the aforementioned `colmeans()` function to calculate the means for each of the variables, and add that as an additional column to the data frame.
+Two basic errors:
 
+1. First, I'd misinterpreted the assignment initially as requiring means of the activities and also means of the subjects, rather than a data set that combined the two together. I thus had a data set of 30 subjects + 6 activities. It was only later that I realized from reading around in the forums that the problem author was rather expecting all permutations of (subject, activity) - i.e. 30 * 6 = 180 rather than 30 + 6 = 36. 
+
+2. I started working on this before I'd really taken the time to understand the rich functions available for summarizing data tables. Once I discovered the aggregate function, I realized that this could be completed with just one line. 
+
+The final solution I opted for is therefore:
 ```
-subject.averages <- cbind(subject.averages, colMeans(dataset.subject[3:68]))
+averages <- aggregate(dataset[3:68], by=list(subject=dataset$subject, 
+                                             activity=dataset$activity), mean)
 ```
 
-Note that we can discard columns 1 and 2, since they contain the subject and the activity themselves - the selectors that we're using to subset the data. 
+which is both far more compact and I suspect more performant.
 
-Again, we take care to name the columns - for the subjects, we use the format `subject.xx` where `xx` is the numeric ID of the subject; for the activities, we use the labels themselves, e.g. `"WALKING"` or `"STANDING"`.
+Note that we can discard the first two columns, since they contain the subject and the activity themselves - the selectors that we're using to subset the data - hence we use `dataset[3:68]` for the input to `aggregate()`
 
-We bind the two intermediate objects `subject.averages` and `activity.averages` into a single wide data frame and then write to disk. 
-
+## Last Things
 The interested reader could use the `read.table()` function to load the `dataset` and `averages` data sets back from disk; the `View()` function from the `utils` package may then be used to invoke a spreadsheet-style data viewer on the object.

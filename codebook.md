@@ -69,14 +69,3 @@ fBodyBodyGyroMag.mean | corresponds to equivalent variable in features_info.txt 
 fBodyBodyGyroMag.std | corresponds to equivalent variable in features_info.txt of the original dataset
 fBodyBodyGyroJerkMag.mean | corresponds to equivalent variable in features_info.txt of the original dataset
 fBodyBodyGyroJerkMag.std | corresponds to equivalent variable in features_info.txt of the original dataset
-
-## Code Book for Averages Dataset
-Variable | Definition
--------- | ----------
-subject.xx | averages of individual wearing the device, where xx is a numeric indicator in the range [1:30] representing the id of the individual
-WALKING | averages of all individuals engaged in level walking activity
-WALKING_UPSTAIRS | averages of all individuals engaged in walking upstairs activity
-WALKING_DOWNSTAIRS | averages of all individuals engaged in walking downstairs activity
-SITTING | averages of all individuals engaged in sitting activity
-STANDING | averages of all individuals engaged in standing activity
-LAYING | averages of all individuals engaged in laying activity
